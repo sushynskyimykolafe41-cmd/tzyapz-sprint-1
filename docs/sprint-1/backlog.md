@@ -5,7 +5,7 @@
 **Дата:** 24.09.2026  
 **Автор:** Куценко Дар'я (`@krxdts`)  
 
-🔗 **[Відкрити оригінальний Беклог у Google Sheets](https://docs.google.com/spreadsheets/d/16H8Mj4r7YpHp0Y4yIoS4pMsUoHTy63D8NaIdyuqsGfM/edit?usp=sharing)**
+🔗 **[Відкрити оригінальний Беклог у Google Sheets](https://docs.google.com/spreadsheets/d/16H8Mj4r7YpHp0Y4yIoS4pMsUoHTy63D8NaIdyuqsGfM/edit?gid=435943990#gid=435943990)**
 
 ---
 
