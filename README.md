@@ -6,7 +6,7 @@ Demo: https://buggy.justtestit.org
 ## Команда
 - Баришполь Іван — @1paf1
 - Куценко Дар'я — @krxdts
-- Рязаніна Валерія — @olena-melnyk
+- Рязаніна Валерія — @ceokitty
 - Сушинський Микола — @dmitro-syd
 - Потеряйло Вероніка — @veronica-ps
 
