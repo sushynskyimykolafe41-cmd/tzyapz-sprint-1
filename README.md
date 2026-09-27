@@ -7,7 +7,7 @@ Demo: https://buggy.justtestit.org
 - Баришполь Іван — @1paf1
 - Куценко Дар'я — @krxdts
 - Рязаніна Валерія — @ceokitty
-- Сушинський Микола — @dmitro-syd
+- Сушинський Микола — @sushynskyimykolafe41
 - Потеряйло Вероніка — @veronica-ps
 
 ## Структура
