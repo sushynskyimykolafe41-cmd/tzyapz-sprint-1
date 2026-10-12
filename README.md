@@ -4,7 +4,7 @@
 Demo: https://buggy.justtestit.org
 
 ## Команда
-- Баришполь Іван — @1paf1
+- Баришполь Іван — @BetterCallvan
 - Куценко Дар'я — @krxdts
 - Рязаніна Валерія — @ceokitty
 - Сушинський Микола — @sushynskyimykolafe41
