@@ -9,6 +9,6 @@
    *(Включає аркуші: Реєстр, Розподіл розділів, Спірні)*
 2. [Оновлена специфікація SRS 1.1](посилання_на_файл_SRS) # тут має бути посилання на файл
    *(Містить журнал змін та виправлені вимоги)*
-3. [План тестування (test-plan)]([посилання_на_файл_плану](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/blob/main/docs/sprint2/test-plan.md))
-4. [Таблиця розподілу задач (task-board)]([посилання_на_task_board](https://docs.google.com/spreadsheets/d/1vS_sW_xkT_w8CTGwa4jF8iUMLwF1Y8jchbwKYOnYmdM/edit?gid=1300145006#gid=1300145006))
+3. [План тестування (test-plan)](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/blob/main/docs/sprint2/test-plan.md)
+4. [Таблиця розподілу задач (task-board)](https://docs.google.com/spreadsheets/d/1vS_sW_xkT_w8CTGwa4jF8iUMLwF1Y8jchbwKYOnYmdM/edit?gid=1300145006#gid=1300145006)
 5. [Протокол ретроспективи (retro-sprint2)](посилання_на_ретро) # тут має бути посилання на файл
