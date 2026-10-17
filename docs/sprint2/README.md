@@ -11,4 +11,4 @@
    *(Містить журнал змін та виправлені вимоги)*
 3. [План тестування (test-plan)](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/blob/main/docs/sprint2/test-plan.md)
 4. [Таблиця розподілу задач (task-board)](https://docs.google.com/spreadsheets/d/1vS_sW_xkT_w8CTGwa4jF8iUMLwF1Y8jchbwKYOnYmdM/edit?gid=1300145006#gid=1300145006)
-5. [Протокол ретроспективи (retro-sprint2)]([посилання_на_ретро](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/blob/main/docs/sprint2/retro-sprint2.md))
+5. [Протокол ретроспективи (retro-sprint2)](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/blob/main/docs/sprint2/retro-sprint2.md)
