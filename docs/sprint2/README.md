@@ -7,7 +7,7 @@
 
 1. [Реєстр дефектів вимог (requirements-defects.xlsx)](https://docs.google.com/spreadsheets/d/1v_FC3q6aezeVwZHnnSIN_qJHJIy3lyZo/edit?gid=707610600#gid=707610600)
    *(Включає аркуші: Реєстр, Розподіл розділів, Спірні)*
-2. [Оновлена специфікація SRS 1.1](посилання_на_файл_SRS) # тут має бути посилання на файл
+2. [Оновлена специфікація SRS 1.1](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/blob/main/docs/sprint2/SRS-1.1.md)
    *(Містить журнал змін та виправлені вимоги)*
 3. [План тестування (test-plan)](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/blob/main/docs/sprint2/test-plan.md)
 4. [Таблиця розподілу задач (task-board)](https://docs.google.com/spreadsheets/d/1vS_sW_xkT_w8CTGwa4jF8iUMLwF1Y8jchbwKYOnYmdM/edit?gid=1300145006#gid=1300145006)
