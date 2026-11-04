@@ -38,7 +38,7 @@ GitHub Issues: [звіти спринта 3 (мітка `sprint:3`)](https://git
 
 ## 4. Статистика
 
-Середовище: demo https://buggy.justtestit.org, Chrome 141. Деталі — аркуш «Environment» у `execution-log.xlsx`.
+Середовище: demo https://buggy.justtestit.org (стан 25–26.10.2026), Chrome 141.0 (інкогніто), Windows 11 Pro 23H2. Деталі — аркуш «Environment» у `execution-log.xlsx`.
 
 ### 4.1. Тест-кейси
 
@@ -54,34 +54,34 @@ GitHub Issues: [звіти спринта 3 (мітка `sprint:3`)](https://git
 
 ### 4.2. Дефекти за severity
 
-Норматив: ≥ 10 звітів, щонайменше три різні рівні severity.
+Норматив: ≥ 10 звітів, щонайменше три різні рівні severity (фактично — 4 рівні: Critical, Major, Normal, Minor).
 
 | Blocker | Critical | Major | Normal | Minor | Trivial | Усього |
 |---|---|---|---|---|---|---|
-| … | … | … | … | … | … | 12 |
+| 0 | 1 | 4 | 5 | 2 | 0 | 12 |
 
 ### 4.3. Дефекти за priority
 
 | P1 | P2 | P3 | Усього |
 |---|---|---|---|
-| … | … | … | 12 |
+| 0 | 1 | 11 | 12 |
 
 ### 4.4. Реєстр дефектів
 
 | Bug ID | Issue | Кейс | Вимога | Severity | Priority |
 |---|---|---|---|---|---|
-| BUG-001 | #1 | TC-011 | F-30 | … | … |
-| BUG-002 | #2 | TC-012 | F-30 | … | … |
-| BUG-003 | #3 | TC-018 | F-50 | … | … |
-| BUG-004 | #4 | TC-023 | F-70 | … | … |
-| BUG-005 | #5 | TC-026 | F-80 | … | … |
-| BUG-006 | #6 | TC-027 | GUI-80 | … | P2 |
-| BUG-007 | #7 | TC-030 | F-90, BL-50 | … | … |
-| BUG-008 | #8 | TC-034 | F-140 | … | … |
-| BUG-009 | #9 | TC-035 | F-140 | … | … |
-| BUG-010 | #10 | TC-036 | F-140 | … | … |
-| BUG-011 | #11 | TC-039 | GUI-10 | … | … |
-| BUG-012 | #12 | TC-043 | F-110 | … | … |
+| BUG-001 | #1 | TC-011 | F-30 | Major | P3 |
+| BUG-002 | #2 | TC-012 | F-30 | Major | P3 |
+| BUG-003 | #3 | TC-018 | F-50 | Major | P3 |
+| BUG-004 | #4 | TC-023 | F-70 | Normal | P3 |
+| BUG-005 | #5 | TC-026 | F-80 | Minor | P3 |
+| BUG-006 | #6 | TC-027 | GUI-80 | Critical | P2 |
+| BUG-007 | #7 | TC-030 | F-90, BL-50 | Normal | P3 |
+| BUG-008 | #8 | TC-034 | F-140 | Normal | P3 |
+| BUG-009 | #9 | TC-035 | F-140 | Normal | P3 |
+| BUG-010 | #10 | TC-036 | F-140 | Minor | P3 |
+| BUG-011 | #11 | TC-039 | GUI-10 | Normal | P3 |
+| BUG-012 | #12 | TC-043 | F-110 | Major | P3 |
 
 Усі 12 звітів пройшли рецензування за сімома правилами і трьома пунктами DoD (Reviewer: Куценко Дарʼя, 26.10.2026). Стан звітів у спринті 3: New / Open.
 
