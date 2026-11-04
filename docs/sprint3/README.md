@@ -1,7 +1,7 @@
 # Досьє якості v3 — «АвтоРейт». Спринт 3 «Тест-кейси та звіти про дефекти»
 
 Команда ФЕ-41 · Дисципліна «Технології забезпечення якості програмних засобів»
-Еталон: виправлена SRS 1.1 · Demo: https://buggy.justtestit.org · Дата здачі: 4.11.2026
+Еталон: виправлена SRS 1.1 · Demo: https://buggy.justtestit.org · Дата здачі: 04.11.2026
 
 **Інкремент:** Набір тест-кейсів + Журнал виконання + Реєстр дефектів.
 
@@ -22,14 +22,15 @@
 | `README.md` | Цей файл: зміст, трекер, статистика, покриття |
 | `test-cases.xlsx` | Аркуші «Test cases» (51 кейс), «Coverage», «Review», «Test data» |
 | `execution-log.xlsx` | Аркуші «Run 1» (журнал виконання) і «Environment» |
-| `attachments/` | 12 знімків екрана, іменування за Bug ID (`BUG-007-1.png`) |
+| `attachments/` | Знімки екрана дефектів, іменування за Bug ID (`BUG-007-1.png`) |
 | `audit.md` | Відтворення трьох дефектів за текстом, перевірка DoD, питання до демо |
-| `task-board.md` | Таблиця розподілу задач, стендапи, статистика |
+| `task-board.md` | Таблиця розподілу задач і журнал стендапів |
+| `task-board.xlsx` | Повна таблиця Скрам-майстра: рецензії, статистика, DoD, план, ретро |
 | `retro.md` | Протокол ретроспективи (Start / Stop / Continue) |
 
 ## 3. Трекер дефектів
 
-GitHub Issues: [відкрити звіти спринта 3](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues?q=label%3A%22sprint%3A3%22)
+GitHub Issues: [звіти спринта 3 (мітка `sprint:3`)](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues?q=label%3A%22sprint%3A3%22)
 
 - Звітів про дефекти: 12 (issues #1–#12, BUG-001…BUG-012).
 - Шаблон звіту: `.github/ISSUE_TEMPLATE/bug_report.md`.
