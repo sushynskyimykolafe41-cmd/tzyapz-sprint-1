@@ -6,7 +6,7 @@ Demo: https://buggy.justtestit.org
 ## Команда
 - Баришполь Іван — @BetterCallvan
 - Куценко Дар'я — @krxdts
-- Рязаніна Валерія — @ceokitty
+- Рзяніна Валерія — @ceokitty
 - Сушинський Микола — @sushynskyimykolafe41
 - Потеряйло Вероніка — @veronica-ps
 
@@ -25,8 +25,11 @@ Demo: https://buggy.justtestit.org
 - `test-plan.md` — План тестування (7 рівнів, 16 типів тестування).
 
 ### `docs/sprint3/` (Спринт 3)
-- `README.md` — Головний файл спринту з посиланнями на фінальні артефакти.
-- `release-notes.md` — Нотатки до релізу та звіт про розгортання продукту.
-- `user-manual.md` — Посібник користувача та адміністратора системи.
-- `retro-sprint3.md` — Підсумковий протокол ретроспективи та закриття проєкту.
-- `test-results.md` — Звіт про виконання тестів, виправлені дефекти та фінальний контроль якості.
+- `README.md` — Досьє якості v3: зміст, трекер, статистика Run 1, дефекти за severity і priority, покриття вимог.
+- `test-cases.xlsx` — 51 тест-кейс (аркуші Test cases, Coverage, Review, Test data).
+- `execution-log.xlsx` — Журнал виконання (аркуші Run 1, Environment).
+- `attachments/` — Знімки екрана до звітів BUG-001…BUG-012.
+- `audit.md` — Акт Аудитора-опонента.
+- `task-board.md`, `task-board.xlsx` — Таблиця розподілу задач і повна таблиця Скрам-майстра.
+- `retro.md` — Протокол ретроспективи Спринту 3.
+- Звіти про дефекти — [GitHub Issues з міткою sprint:3](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues?q=label%3A%22sprint%3A3%22); шаблон — `.github/ISSUE_TEMPLATE/bug_report.md`.
