@@ -32,9 +32,10 @@
 
 GitHub Issues: [звіти спринта 3 (мітка `sprint:3`)](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues?q=label%3A%22sprint%3A3%22)
 
-- Звітів про дефекти: 12 (issues #1–#12, BUG-001…BUG-012).
-- Шаблон звіту: `.github/ISSUE_TEMPLATE/bug_report.md`.
-- Мітки: `severity:*`, `priority:P1…P3`, `status:*`, `sprint:3`.
+- Звітів про дефекти: 12 — issues [#18](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues/18)…[#29](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues/29) (BUG-001…BUG-012); кожен із мітками `severity:*`, `priority:*`, `status:*`, `sprint:3`.
+- Шаблон звіту: [`.github/ISSUE_TEMPLATE/bug_report.md`](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/blob/main/.github/ISSUE_TEMPLATE/bug_report.md).
+- Знімки екрана: [`attachments/`](attachments/) — `BUG-001-1.png` … `BUG-012-1.png`, кожен згадано в розділі Attachments свого issue.
+- Рецензія звітів: поле **Reviewer** у тексті кожного issue (Куценко Дарʼя, 06.11.2026); після рецензії мітка `status:new` замінена на `status:open`.
 
 ## 4. Статистика
 
@@ -68,22 +69,22 @@ GitHub Issues: [звіти спринта 3 (мітка `sprint:3`)](https://git
 
 ### 4.4. Реєстр дефектів
 
-| Bug ID | Issue | Кейс | Вимога | Severity | Priority |
-|---|---|---|---|---|---|
-| BUG-001 | #1 | TC-011 | F-30 | Major | P3 |
-| BUG-002 | #2 | TC-012 | F-30 | Major | P3 |
-| BUG-003 | #3 | TC-018 | F-50 | Major | P3 |
-| BUG-004 | #4 | TC-023 | F-70 | Normal | P3 |
-| BUG-005 | #5 | TC-026 | F-80 | Minor | P3 |
-| BUG-006 | #6 | TC-027 | GUI-80 | Critical | P2 |
-| BUG-007 | #7 | TC-030 | F-90, BL-50 | Normal | P3 |
-| BUG-008 | #8 | TC-034 | F-140 | Normal | P3 |
-| BUG-009 | #9 | TC-035 | F-140 | Normal | P3 |
-| BUG-010 | #10 | TC-036 | F-140 | Minor | P3 |
-| BUG-011 | #11 | TC-039 | GUI-10 | Normal | P3 |
-| BUG-012 | #12 | TC-043 | F-110 | Major | P3 |
+| Bug ID | Issue | Кейс | Вимога | Severity | Priority | Знімок |
+|---|---|---|---|---|---|---|
+| BUG-001 | [#18](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues/18) | TC-011 | F-30 | Major | P3 | [BUG-001-1.png](attachments/BUG-001-1.png) |
+| BUG-002 | [#19](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues/19) | TC-012 | F-30 | Major | P3 | [BUG-002-1.png](attachments/BUG-002-1.png) |
+| BUG-003 | [#20](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues/20) | TC-018 | F-50 | Major | P3 | [BUG-003-1.png](attachments/BUG-003-1.png) |
+| BUG-004 | [#21](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues/21) | TC-023 | F-70 | Normal | P3 | [BUG-004-1.png](attachments/BUG-004-1.png) |
+| BUG-005 | [#22](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues/22) | TC-026 | F-80 | Minor | P3 | [BUG-005-1.png](attachments/BUG-005-1.png) |
+| BUG-006 | [#23](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues/23) | TC-027 | GUI-80 | Critical | P2 | [BUG-006-1.png](attachments/BUG-006-1.png) |
+| BUG-007 | [#24](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues/24) | TC-030 | F-90, BL-50 | Normal | P3 | [BUG-007-1.png](attachments/BUG-007-1.png) |
+| BUG-008 | [#25](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues/25) | TC-034 | F-140 | Normal | P3 | [BUG-008-1.png](attachments/BUG-008-1.png) |
+| BUG-009 | [#26](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues/26) | TC-035 | F-140 | Normal | P3 | [BUG-009-1.png](attachments/BUG-009-1.png) |
+| BUG-010 | [#27](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues/27) | TC-036 | F-140 | Minor | P3 | [BUG-010-1.png](attachments/BUG-010-1.png) |
+| BUG-011 | [#28](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues/28) | TC-039 | GUI-10 | Normal | P3 | [BUG-011-1.png](attachments/BUG-011-1.png) |
+| BUG-012 | [#29](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues/29) | TC-043 | F-110 | Major | P3 | [BUG-012-1.png](attachments/BUG-012-1.png) |
 
-Усі 12 звітів пройшли рецензування за сімома правилами і трьома пунктами DoD (Reviewer: Куценко Дарʼя, 26.10.2026). Стан звітів у спринті 3: New / Open.
+Усі 12 звітів пройшли рецензування за сімома правилами і трьома пунктами DoD (поле Reviewer: Куценко Дарʼя, 06.11.2026). Стан звітів у спринті 3: Open.
 
 ## 5. Покриття вимог SRS 1.1
 
@@ -141,7 +142,19 @@ GitHub Issues: [звіти спринта 3 (мітка `sprint:3`)](https://git
 
 Виконано 9 з 9 пунктів (аркуш «DoD» у `task-board.xlsx`).
 
-## 7. Відомі обмеження
+## 7. Зміни після рев'ю чернетки (05.11.2026)
+
+| Зауваження рев'ю | Що зроблено | Хто, коли |
+|---|---|---|
+| Issues, шаблону і міток немає | Шаблон `.github/ISSUE_TEMPLATE/bug_report.md`, 16 міток, 12 issues [#18](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues/18)…[#29](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues/29) за шаблоном 4.11 (звіти, складені під час Run 1 25–26.10.2026, внесено в трекер) | Потеряйло Вероніка, 06.11.2026 |
+| Немає `attachments/` | 12 знімків, знятих під час повторного відтворення кожного дефекту за текстом issue | Потеряйло Вероніка, 06.11.2026 |
+| Рецензія звітів не підтверджена | Кожен issue перевірено за 7 правилами + 3 пунктами DoD, у тексті — поле Reviewer, мітка `status:open` | Куценко Дарʼя, 06.11.2026 |
+| Аудит не помітив відсутніх артефактів | Три відтворення повторено за фактичними issues, перевірку DoD — за посиланнями на артефакти | Сушинський Микола, 07.11.2026 |
+| Неконкретні коментарі TC-018, TC-026 у журналі | Записано, що саме спостерігалося на кроці | Потеряйло Вероніка, 06.11.2026 |
+| TC-001 прив'язаний до конкретної марки | Очікуване за правилом F-10, назви — довідка | Рзяніна Валерія, 06.11.2026 |
+| Кореневий README описував неіснуючі файли | Розділ `docs/sprint3/` переписано за фактичною структурою | Баришполь Іван, 07.11.2026 |
+
+## 8. Відомі обмеження
 
 - F-150, F-160, D-10: вимоги потребують підтвердження замовником; запит буде надіслано в спринті 4.
 - BUG-006 блокує TC-028, TC-029, TC-033; після виправлення їх потрібно виконати повторно (спринт 5).
