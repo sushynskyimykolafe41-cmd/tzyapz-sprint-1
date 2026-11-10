@@ -1,0 +1,10 @@
+# Збірка Maven
+target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# macOS
+.DS_Store
