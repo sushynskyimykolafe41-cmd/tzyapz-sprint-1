@@ -1,0 +1,58 @@
+# Автоматичний прогін тестів qa-autorate на GitHub (Actions) після кожного коміту в qa-autorate/.
+# Unit: mvn clean test; UI: mvn test -DexcludedGroups=none -Dgroups=ui (headless Chrome).
+# Червоні юніт-тести — закладені дефекти модуля v1 (BUG-014…BUG-019), тому падіння тестів не зупиняє job;
+# підсумок «Tests run / Failures» — на сторінці запуску (Summary), звіти Surefire — в Artifacts.
+name: qa-autorate tests
+
+on:
+  push:
+    paths:
+      - "qa-autorate/**"
+      - ".github/workflows/qa-autorate.yml"
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: qa-autorate
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+          cache-dependency-path: qa-autorate/pom.xml
+
+      - name: Unit tests — mvn clean test
+        run: mvn -B clean test -Dmaven.test.failure.ignore=true | tee unit.log
+
+      - name: UI tests — Selenium WebDriver (headless Chrome)
+        run: mvn -B test -DexcludedGroups=none -Dgroups=ui -Dmaven.test.failure.ignore=true | tee ui.log
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## qa-autorate · Surefire"
+            echo "### Unit (mvn clean test)"
+            echo '```'
+            grep -E "Tests run:|FAILURE!|expected" unit.log || true
+            echo '```'
+            echo "### UI (mvn test -DexcludedGroups=none -Dgroups=ui)"
+            echo '```'
+            grep -E "Tests run:|FAILURE!|ERROR\]" ui.log || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: surefire-reports
+          path: |
+            qa-autorate/target/surefire-reports/
+            qa-autorate/unit.log
+            qa-autorate/ui.log
