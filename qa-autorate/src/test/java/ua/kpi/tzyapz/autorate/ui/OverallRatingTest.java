@@ -53,6 +53,7 @@ class OverallRatingTest extends UiTestBase {
     @DisplayName("TC-015: вхід зі сторінки Overall Rating показує «Hi, Tester» і лишає користувача на /overall")
     void tc015_loginKeepsUserOnOverallPage() {
         open("/overall");
+        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(TABLE_ROWS, 0)); // сторінка завантажилась
         TopBar topBar = new TopBar(driver, wait);
 
         topBar.loginAs(LOGIN, PASSWORD);
@@ -60,7 +61,7 @@ class OverallRatingTest extends UiTestBase {
         assertAll("після входу",
                 () -> assertEquals("Hi, " + FIRST_NAME, greeting.trim()),
                 () -> assertTrue(driver.getCurrentUrl().endsWith("/overall"), driver.getCurrentUrl()),
-                () -> assertTrue(driver.findElement(TopBar.PROFILE_LINK).isDisplayed(), "немає Profile"));
+                () -> assertTrue(topBar.visible(TopBar.PROFILE_LINK).isDisplayed(), "немає Profile"));
 
         topBar.logout();
         assertTrue(topBar.waitForVisitorPanel(), "після Logout немає панелі відвідувача");

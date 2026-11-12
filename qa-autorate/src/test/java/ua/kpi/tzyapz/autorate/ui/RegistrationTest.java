@@ -25,7 +25,8 @@ class RegistrationTest extends UiTestBase {
     private static final By CONFIRM_PASSWORD = By.id("confirmPassword");
     private static final By REGISTER_BUTTON = By.xpath("//form//button[normalize-space()='Register']");
     private static final By CANCEL_LINK = By.xpath("//a[normalize-space()='Cancel']");
-    private static final By ERROR_MESSAGE = By.cssSelector(".alert-danger");
+    private static final By MISMATCH_MESSAGE =
+            By.xpath("//*[contains(normalize-space(text()),'Passwords do not match')]");
     private static final By SUCCESS_MESSAGE = By.cssSelector(".alert-success");
 
     private void fillForm(String login, String firstName, String lastName, String password, String confirm) {
@@ -53,19 +54,18 @@ class RegistrationTest extends UiTestBase {
     }
 
     @Test
-    @DisplayName("TC-007: різні Password і Confirm Password — повідомлення про незбіг, реєстрації немає")
+    @DisplayName("TC-007: різні Password і Confirm Password — «Passwords do not match», Register неактивна")
     void tc007_passwordMismatchRejected() {
         open("/register");
         fillForm("tzfe41_r07_s4", "Mismatch", "Test", "Autorate2026!", "Autorate2026?");
 
-        WebElement register = driver.findElement(REGISTER_BUTTON);
-        if (register.isEnabled()) {
-            register.click();
-        }
-        String error = wait.until(ExpectedConditions.visibilityOfElementLocated(ERROR_MESSAGE)).getText();
+        // повідомлення з'являється одразу під полем Confirm Password; чекаємо саме на видимий елемент
+        String error = new TopBar(driver, wait).visible(MISMATCH_MESSAGE).getText();
         assertAll("незбіг паролів",
-                () -> assertTrue(error.toLowerCase().contains("match"), "текст помилки: " + error),
-                () -> assertTrue(driver.findElements(SUCCESS_MESSAGE).isEmpty(), "є повідомлення про успіх"));
+                () -> assertEquals("Passwords do not match", error.trim()),
+                () -> assertFalse(driver.findElement(REGISTER_BUTTON).isEnabled(), "Register активна — форму можна надіслати"),
+                () -> assertTrue(driver.findElements(SUCCESS_MESSAGE).stream().noneMatch(WebElement::isDisplayed),
+                        "є повідомлення про успішну реєстрацію"));
     }
 
     @Test

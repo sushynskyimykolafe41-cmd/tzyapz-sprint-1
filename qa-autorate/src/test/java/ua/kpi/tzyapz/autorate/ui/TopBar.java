@@ -2,6 +2,7 @@ package ua.kpi.tzyapz.autorate.ui;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -28,11 +29,22 @@ class TopBar {
         this.wait = wait;
     }
 
+    /**
+     * Чекає на перший <b>видимий</b> елемент за локатором. На деяких сторінках demo в розмітці є
+     * приховані дублікати елементів, тому visibilityOfElementLocated (перевіряє лише перший знайдений) не підходить.
+     */
+    WebElement visible(By locator) {
+        return wait.until(d -> d.findElements(locator).stream()
+                .filter(WebElement::isDisplayed)
+                .findFirst()
+                .orElse(null));
+    }
+
     /** Вводить логін і пароль у верхній панелі та натискає «Login». */
     void loginAs(String login, String password) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_FIELD)).sendKeys(login);
-        driver.findElement(PASSWORD_FIELD).sendKeys(password);
-        driver.findElement(LOGIN_BUTTON).click();
+        visible(LOGIN_FIELD).sendKeys(login);
+        visible(By.name("password")).sendKeys(password);
+        visible(LOGIN_BUTTON).click();
     }
 
     /** Чекає на привітання «Hi, …» і повертає його текст. */
@@ -51,7 +63,7 @@ class TopBar {
 
     /** Панель відвідувача: видно поле «Login». */
     boolean waitForVisitorPanel() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_FIELD)).isDisplayed();
+        return visible(LOGIN_FIELD).isDisplayed();
     }
 
     boolean isGreetingShown() {
