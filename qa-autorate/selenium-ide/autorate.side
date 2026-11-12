@@ -1,0 +1,91 @@
+{
+  "id": "a1d6ee8a-9191-4961-89bc-b6c41cae5243",
+  "version": "2.0",
+  "name": "autorate",
+  "url": "https://buggy.justtestit.org",
+  "tests": [{
+    "id": "37de64c8-bc26-4802-b437-7747f71d7508",
+    "name": "TC-004 Overall Rating opens table",
+    "commands": [{
+      "id": "5a0b7d7b-3de6-46c9-b40b-9ae191bad94f",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5668cc39-fed5-4f70-af00-4ccbf2104d85",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x900",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d299de83-6623-4e3d-83f0-307b8d27c744",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "css=a[href='/overall']",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "847c670b-219b-4e9f-8335-af2e2b788bfd",
+      "comment": "",
+      "command": "click",
+      "target": "css=a[href='/overall']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f7e3d7f1-52d9-43ab-93ba-3403f1e9acba",
+      "comment": "demo завантажує таблицю до 30 с",
+      "command": "waitForElementVisible",
+      "target": "css=table tbody tr",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "eb263c13-b46e-46cd-8c71-9bd05b8df503",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=table thead",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "85972caa-dffd-4bb6-b30b-1ca08533296e",
+      "comment": "",
+      "command": "verifyText",
+      "target": "xpath=//th[contains(.,'Make')]",
+      "targets": [],
+      "value": "Make"
+    }, {
+      "id": "adc8ff76-49af-4a2a-a0d0-35f5437ed95e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//th[contains(.,'Rank')]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e60e10fc-31d1-4308-bac7-6a970c8805ac",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//th[contains(.,'Votes')]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a64dde29-9d0f-4021-b8ed-1de8cbe88692",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//th[contains(.,'Comments')]",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "4af60733-0cdf-431c-b3f9-81f35e0f80c0",
+    "name": "Sprint 4 · АвтоРейт",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["37de64c8-bc26-4802-b437-7747f71d7508"]
+  }],
+  "urls": ["https://buggy.justtestit.org/"],
+  "plugins": []
+}
