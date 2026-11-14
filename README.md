@@ -33,3 +33,11 @@ Demo: https://buggy.justtestit.org
 - `task-board.md`, `task-board.xlsx` — Таблиця розподілу задач і повна таблиця Скрам-майстра.
 - `retro.md` — Протокол ретроспективи Спринту 3.
 - Звіти про дефекти — [GitHub Issues з міткою sprint:3](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues?q=label%3A%22sprint%3A3%22); шаблон — `.github/ISSUE_TEMPLATE/bug_report.md`.
+
+- ### `qa-autorate/` (Спринт 4 — Автоматизація)
+- `README.md` — як зібрати й запустити юніт- і UI-тести, очікуваний результат, структура, автори.
+- `src/test/java/ua/kpi/tzyapz/autorate/` — юніт-тести JUnit 5 (27) для модуля v1; `ui/` — WebDriver-тести (11) за тест-кейсами спринта 3.
+- `selenium-ide/` — проєкт Selenium IDE (TC-004, TC-031) і експорт у Java.
+- `docs/` — матриця покриття, UI-сценарії, протокол Surefire, розділ досьє «Автоматизація», протокол відтворення, таблиця задач, ретро.
+- Дефекти модуля — [GitHub Issues з міткою module](https://github.com/sushynskyimykolafe41-cmd/tzyapz-sprint-1/issues?q=label%3Amodule); прогін тестів — вкладка Actions, «qa-autorate tests».
+
