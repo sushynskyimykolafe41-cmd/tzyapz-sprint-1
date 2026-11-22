@@ -1,0 +1,135 @@
+# Спринт 5 · регресія. Один і той самий набір тестів спринта 4 запускається на модулі v1 (qa-autorate)
+# і на модулі v2 (code/modules/autorate/v2) без змін у тестах; UI-тести WebDriver — на поточному demo.
+# Тести, що падають, не зупиняють job: підсумок і порівняння «v1 → v2» по кожному тесту — у Summary,
+# звіти Surefire обох версій — в Artifacts → sprint5-regression.
+name: regression v1 vs v2
+
+on:
+  push:
+    paths:
+      - "code/modules/autorate/v2/**"
+      - ".github/workflows/regression-v2.yml"
+  workflow_dispatch:
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+          cache-dependency-path: qa-autorate/pom.xml
+
+      - name: v1 — mvn clean test (autorate-module 1.0.0)
+        working-directory: qa-autorate
+        run: mvn -B clean test -Dmaven.test.failure.ignore=true | tee ../v1.log
+
+      - name: Зберегти звіти Surefire v1
+        run: |
+          mkdir -p out/surefire-v1
+          cp qa-autorate/target/surefire-reports/TEST-*.xml qa-autorate/target/surefire-reports/*.txt out/surefire-v1/
+
+      - name: v2 — ті самі тести без змін (autorate-module 2.0.0)
+        run: |
+          # тести спринта 4 копіюються у v2 повністю; ExampleTest.java розробників ідентичний нашому
+          rm -rf code/modules/autorate/v2/src/test
+          cp -r qa-autorate/src/test code/modules/autorate/v2/src/test
+          cd code/modules/autorate/v2
+          mvn -B clean test -Dmaven.test.failure.ignore=true | tee "$GITHUB_WORKSPACE/v2.log"
+          mkdir -p "$GITHUB_WORKSPACE/out/surefire-v2"
+          cp target/surefire-reports/TEST-*.xml target/surefire-reports/*.txt "$GITHUB_WORKSPACE/out/surefire-v2/"
+
+      - name: UI — WebDriver на поточному demo (headless Chrome)
+        working-directory: qa-autorate
+        run: |
+          mvn -B test -DexcludedGroups=none -Dgroups=ui -Dmaven.test.failure.ignore=true | tee ../ui.log
+          mkdir -p ../out/surefire-ui
+          cp target/surefire-reports/*autorate.ui.* ../out/surefire-ui/
+
+      - name: Порівняння v1 → v2 по кожному тесту
+        if: always()
+        run: |
+          {
+            echo "## Surefire"
+            echo "### v1 (1.0.0)"; echo '```'; grep -E "Tests run:" v1.log || true; echo '```'
+            echo "### v2 (2.0.0)"; echo '```'; grep -E "Tests run:" v2.log || true; echo '```'
+            echo "### UI на demo"; echo '```'; grep -E "Tests run:" ui.log || true; echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          python3 - <<'PY'
+          import csv, glob, os, sys
+          import xml.etree.ElementTree as ET
+
+
+          def load(folder):
+              res = {}
+              for f in sorted(glob.glob(os.path.join(folder, "TEST-*.xml"))):
+                  for tc in ET.parse(f).getroot().iter("testcase"):
+                      cls = tc.get("classname", "").split(".")[-1]
+                      st = "passed"
+                      for tag in ("failure", "error", "skipped"):
+                          if tc.find(tag) is not None:
+                              st = {"failure": "failed", "error": "error", "skipped": "skipped"}[tag]
+                      res[(cls, tc.get("name", ""))] = st
+              return res
+
+
+          v1, v2, ui = load("out/surefire-v1"), load("out/surefire-v2"), load("out/surefire-ui")
+          LABEL = {
+              ("passed", "passed"): "стабільно",
+              ("failed", "passed"): "ВИПРАВЛЕНО → кандидат на Verified",
+              ("failed", "failed"): "НЕ ВИПРАВЛЕНО → кандидат на Reopened",
+              ("passed", "failed"): "РЕГРЕСІЯ → новий дефект",
+          }
+          rows, count = [], {}
+          for key in sorted(set(v1) | set(v2)):
+              a, b = v1.get(key, "немає"), v2.get(key, "немає")
+              lab = LABEL.get((a, b), f"{a} → {b}")
+              count[lab] = count.get(lab, 0) + 1
+              rows.append((key[0], key[1], a, b, lab))
+
+          with open("out/comparison.csv", "w", newline="", encoding="utf-8") as fh:
+              w = csv.writer(fh)
+              w.writerow(["Клас", "Тест", "v1", "v2", "Перехід"])
+              w.writerows(rows)
+              for k, s in sorted(ui.items()):
+                  w.writerow([k[0], k[1], "", s, "UI на demo"])
+
+
+          def n(d, s):
+              return sum(1 for x in d.values() if x == s)
+
+
+          out = ["## Регресія v1 → v2 (ті самі тести спринта 4)", "",
+                 "| Набір | Tests run | passed | failed | error |", "|---|---|---|---|---|"]
+          for name, d in (("JUnit на v1 (1.0.0)", v1), ("JUnit на v2 (2.0.0)", v2), ("WebDriver на demo", ui)):
+              out.append(f"| {name} | {len(d)} | {n(d, 'passed')} | {n(d, 'failed')} | {n(d, 'error')} |")
+          out += ["", "### Переходи по кожному тесту", "", "| Перехід | Кількість |", "|---|---|"]
+          out += [f"| {k} | {v} |" for k, v in sorted(count.items(), key=lambda x: -x[1])]
+          out += ["", "### Тести, що змінили результат або падають", "", "| Клас | Тест | v1 | v2 | Перехід |", "|---|---|---|---|---|"]
+          out += [f"| {r[0]} | `{r[1]}` | {r[2]} | {r[3]} | **{r[4]}** |" for r in rows if r[4] != "стабільно"]
+          out += ["", "### WebDriver на demo", "", "| Клас | Тест | Результат |", "|---|---|---|"]
+          out += [f"| {k[0]} | `{k[1]}` | {s} |" for k, s in sorted(ui.items())]
+          out += ["", "<details><summary>Усі JUnit-тести (v1 / v2)</summary>", "", "| Клас | Тест | v1 | v2 | Перехід |", "|---|---|---|---|---|"]
+          out += [f"| {r[0]} | `{r[1]}` | {r[2]} | {r[3]} | {r[4]} |" for r in rows]
+          out += ["", "</details>", ""]
+          text = "\n".join(out)
+          open("out/comparison.md", "w", encoding="utf-8").write(text)
+          summary = os.environ.get("GITHUB_STEP_SUMMARY")
+          if summary:
+              open(summary, "a", encoding="utf-8").write(text)
+          print(text)
+          PY
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sprint5-regression
+          path: |
+            out/
+            v1.log
+            v2.log
+            ui.log
